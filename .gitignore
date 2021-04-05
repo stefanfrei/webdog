@@ -3,5 +3,12 @@ nbproject/
 nb-configuration.xml
 nbactions.xml
 
+#vscode
+.vscode/
+.settings/
+.classpath
+.factorypath
+.project
+
 # mvn
 target/
