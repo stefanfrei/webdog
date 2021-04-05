@@ -12,3 +12,7 @@ nbactions.xml
 
 # mvn
 target/
+release.properties
+
+# project specific
+src/main/resources/app.props
