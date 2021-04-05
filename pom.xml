@@ -144,6 +144,13 @@
                     <tagNameFormat>@{project.version}</tagNameFormat>
                     <remoteTagging>false</remoteTagging>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>1.11.2</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <!-- hmm, errors in this plugin -->
             <!-- <plugin>
