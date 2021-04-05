@@ -19,8 +19,8 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:stefanfrei/@{project.artifactId}.git</connection>
-        <developerConnection>scm:git:git@github.com:stefanfrei/@{project.artifactId}.git</developerConnection>
+        <connection>scm:git:github.com:stefanfrei/webdog.git</connection>
+        <developerConnection>scm:git:github.com:stefanfrei/webdog.git</developerConnection>
         <url>https://github.com/stefanfrei/@{project.artifactId}.git</url>
         <tag>@{project.version}</tag>
     </scm>
