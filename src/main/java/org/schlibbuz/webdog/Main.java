@@ -5,12 +5,8 @@
  */
 package org.schlibbuz.webdog;
 
-import java.util.concurrent.TimeUnit;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  *
@@ -23,15 +19,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.setProperty("webdriver.gecko.driver","C:/Program Files/Mozilla Geckodriver/geckodriver.exe");
-        WebDriver d = new FirefoxDriver();
-        d.manage().window().maximize();
-        d.manage().deleteAllCookies();
-        d.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        d.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        d.get("http://localhost:3000/");
-        w.trace(d.getPageSource());
-        d.quit();
+        w.trace("implement me");
     }
 
 }

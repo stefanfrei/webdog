@@ -19,6 +19,7 @@ public class MainTest {
 
     @BeforeTest
     public void setup() {
+        System.setProperty("webdriver.gecko.driver","C:/Program Files/Mozilla Geckodriver/geckodriver.exe");
         d = new FirefoxDriver();
     }
 
@@ -30,13 +31,13 @@ public class MainTest {
     @Test
     public void testTitle() {
         w.trace("running test");
-        System.setProperty("webdriver.gecko.driver","C:/Program Files/Mozilla Geckodriver/geckodriver.exe");
         d.manage().window().maximize();
         d.manage().deleteAllCookies();
         d.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         d.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         d.get("http://localhost:3000/");
-        String expected = "sa723 − Home";
+        String expected = "org.schlibbuz ‒ Home";
+        w.trace(expected);
         assertEquals(d.getTitle(), expected);
     }
 }
