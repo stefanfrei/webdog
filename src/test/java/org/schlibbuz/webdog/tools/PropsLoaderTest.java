@@ -3,15 +3,11 @@ package org.schlibbuz.webdog.tools;
 
 import static org.testng.Assert.assertEquals;
 
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.Properties;
 import java.util.Set;
-
-
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.testng.annotations.BeforeTest;
@@ -24,6 +20,7 @@ public class PropsLoaderTest {
     private static final Logger w = LogManager.getLogger(PropsLoaderTest.class);
     private static final String APP_PROPS_FILE = "src/main/resources/app.props";
     private static final String APP_SYSPROPS_PREFIX = "webdog.";
+
 
     @BeforeTest
     public void setup() {
