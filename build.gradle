@@ -58,7 +58,10 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.named('test') {
-    useTestNG()
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng.xml'
+    }
 }
 
 release {
