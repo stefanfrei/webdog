@@ -15,11 +15,12 @@ import org.apache.logging.log4j.LogManager;
 public class PropsLoader {
 
     private static final Logger w = LogManager.getLogger(PropsLoader.class);
+    private static final String APP_PROPS = "app.props";
 
     private PropsLoader() {}
     
     public static Properties loadProps() {
-        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream("app.props")) {
+        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
             Properties props = new Properties();
             props.load(input);
             return props;
@@ -31,8 +32,21 @@ public class PropsLoader {
         return null;
     }
 
+    public static String getArtifact() {
+        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
+            Properties props = new Properties();
+            props.load(input);
+            return props.getProperty("artifact");
+
+        } catch (IOException e) {
+            w.error(e.getMessage());
+        }
+
+        return null;
+    }
+
     public static String getVersion() {
-        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream("app.props")) {
+        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
             Properties props = new Properties();
             props.load(input);
             return props.getProperty("version");

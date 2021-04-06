@@ -29,6 +29,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         var ux = new UIExperience();
         ux.sayWelcome();
+        ux.printWeatherReport();
         var as = new ArgsSanitizer(args);
         Properties props = PropsLoader.loadProps();
 
