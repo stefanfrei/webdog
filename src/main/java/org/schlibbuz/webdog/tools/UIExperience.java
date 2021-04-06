@@ -6,20 +6,24 @@
 package org.schlibbuz.webdog.tools;
 
 import org.apache.logging.log4j.Logger;
+import org.schlibbuz.webdog.services.WeatherService;
 import org.apache.logging.log4j.LogManager;
 
 public class UIExperience {
 
     private static final Logger w = LogManager.getLogger(UIExperience.class);
+    private final WeatherService weatherService;
 
-    public void sayWelcome() {
-        String version = UIExperience.class.getPackage().getImplementationVersion();
-        if (version == null) version = PropsLoader.getVersion();
-        w.info("Welcome to webdog {}", version);
+    public UIExperience() {
+        weatherService = new WeatherService();
     }
 
-    public void reportWeather() {
-        w.info("The weather near Zurich is partly cloudy and enjoyable 15 degrees celsius");
+    public void sayWelcome() {
+        w.info("Welcome to {} {}", PropsLoader.getArtifact(), PropsLoader.getVersion());
+    }
+
+    public void printWeatherReport() {
+        w.info(weatherService.getActualWeather());
     }
     
 }
