@@ -12,3 +12,13 @@ nbactions.xml
 
 # mvn
 target/
+release.properties
+
+#gradle
+.gradle/
+bin/
+build/
+gradle/
+gradlew*
+# project specific
+src/main/resources/app.props
