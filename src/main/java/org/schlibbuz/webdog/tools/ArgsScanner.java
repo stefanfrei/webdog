@@ -7,13 +7,13 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 
-public class ArgsSanitizer {
+public class ArgsScanner {
 
-    private static final Logger w = LogManager.getLogger(ArgsSanitizer.class);
+    private static final Logger w = LogManager.getLogger(ArgsScanner.class);
 
     private final String[] args;
     
-    public ArgsSanitizer(final String[] args) {
+    public ArgsScanner(final String[] args) {
         this.args = args;
     }
 

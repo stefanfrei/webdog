@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Base Suite">
-  <test name="Dry Test Run">
-      <parameter name="emailid" value="tester456@gmail.com"/>
-      <parameter name="password" value="test@123"/>
+<suite name="App Suite">
+  <test name="Tools Test">
       <classes>
-      <class name="org.schlibbuz.webdog.MainTest"/>
+        <class name="org.schlibbuz.webdog.tools.PropsLoaderTest"/>
+        <class name="org.schlibbuz.webdog.tools.ArgsScannerTest"/>
       </classes>
   </test>
 </suite>
