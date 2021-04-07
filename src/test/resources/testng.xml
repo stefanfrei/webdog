@@ -5,6 +5,8 @@
       <classes>
         <class name="org.schlibbuz.webdog.tools.PropsLoaderTest"/>
         <class name="org.schlibbuz.webdog.tools.ArgsScannerTest"/>
+        <class name="org.schlibbuz.webdog.services.ConciergeServiceTest"/>
+        <class name="org.schlibbuz.webdog.services.WeatherServiceTest"/>
       </classes>
   </test>
 </suite>
