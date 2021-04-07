@@ -14,4 +14,9 @@
         <class name="org.schlibbuz.webdog.services.WeatherServiceTest"/>
       </classes>
   </test>
+  <test name="Finals">
+      <classes>
+        <class name="org.schlibbuz.webdog.MainTest"/>
+      </classes>
+  </test>
 </suite>

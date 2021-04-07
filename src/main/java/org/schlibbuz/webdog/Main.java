@@ -24,14 +24,17 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws CmdLineArgException {
+        Main.run(args);
+    }
+
+    static void run(String[] args) throws CmdLineArgException {
         w.trace("webdog starting ...");
         PropsLoader.addSysProps();
         var env = new Env();
         new ArgsScanner(env, args);
 
         var ux = new UIExperience();
-        ux.sayWelcome();
-        ux.printWeatherReport();
+        ux.printWelcome();
+        ux.printActualWeather();
     }
-
 }
