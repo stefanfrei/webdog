@@ -15,46 +15,30 @@ import org.apache.logging.log4j.LogManager;
 public class PropsLoader {
 
     private static final Logger w = LogManager.getLogger(PropsLoader.class);
-    private static final String APP_PROPS = "app.props";
+    private static final String PROPS_FILE_DEFAULT = "app.props";
+    private static final String PROPS_PREFIX = "webdog.";
 
-    private PropsLoader() {}
-    
-    public static Properties loadProps() {
-        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
-            Properties props = new Properties();
+
+    private PropsLoader() {
+    }
+
+    public static void addSysProps() {
+        PropsLoader.addSysProps(PROPS_FILE_DEFAULT);
+    }
+
+    public static synchronized void addSysProps(final String propsFile) {
+        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(propsFile)) {
+            var props = new Properties();
             props.load(input);
-            return props;
+            props.forEach( (k, v) -> {
+                final String key = PROPS_PREFIX + k;
+                w.trace("setting sysprop {} = '{}'", key, v);
+                System.setProperty(key, v.toString());
+            });
 
         } catch (IOException e) {
             w.error(e.getMessage());
         }
-
-        return null;
     }
 
-    public static String getArtifact() {
-        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
-            Properties props = new Properties();
-            props.load(input);
-            return props.getProperty("artifact");
-
-        } catch (IOException e) {
-            w.error(e.getMessage());
-        }
-
-        return null;
-    }
-
-    public static String getVersion() {
-        try (InputStream input = PropsLoader.class.getClassLoader().getResourceAsStream(APP_PROPS)) {
-            Properties props = new Properties();
-            props.load(input);
-            return props.getProperty("version");
-
-        } catch (IOException e) {
-            w.error(e.getMessage());
-        }
-
-        return null;
-    }
 }

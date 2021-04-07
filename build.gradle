@@ -44,6 +44,7 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-api:2.14.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
     implementation 'commons-io:commons-io:2.8.0'
+    implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     implementation 'org.apache.poi:poi:5.0.0'
@@ -58,11 +59,27 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.named('test') {
-    useTestNG()
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng.xml'
+    }
 }
 
 release {
     git {
         requireBranch = 'main'
     }
+}
+
+sonarlint {
+    ignoreFailures = false
+    excludes {
+        message 'java:S1214'
+        message 'kotlin:S100'
+        message 'xml:S125'
+    }
+    includes {
+        message 'java:S4266' // Enable java:S4266 which is disabled by default
+    }
+    ruleParameter('java:S119', 'format', '^[A-Z][a-zA-Z0-9]*$') // Allow upper camel-case for type parameter names
 }

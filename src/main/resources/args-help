@@ -1,8 +1,7 @@
-# webdog ‒ quality scanner for websites #
+<-------------------------------------------------->
+  webdog-1.1-SNAPSHOT.jar
+<-------------------------------------------------->
 
-#### Usage ####
-
-`
 NAME
         java -jar webdog-1.1-SNAPSHOT.jar - HTML sanity checker
 
@@ -20,4 +19,5 @@ DESCRIPTION
 
         -wd=TYPE, --webdriver=TYPE
             use 'geckodriver' for Firefox, 'chromedriver' for Google Chrome and Chromium
-`
+
+<-------------------------------------------------->

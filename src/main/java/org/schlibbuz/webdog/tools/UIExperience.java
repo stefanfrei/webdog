@@ -19,11 +19,15 @@ public class UIExperience {
     }
 
     public void sayWelcome() {
-        w.info("Welcome to {} {}", PropsLoader.getArtifact(), PropsLoader.getVersion());
+        w.info(
+                "Welcome to {} {}",
+                System.getProperty("webdog.artifact"),
+                System.getProperty("webdog.version")
+        );
     }
 
     public void printWeatherReport() {
         w.info(weatherService.getActualWeather());
     }
-    
+
 }
