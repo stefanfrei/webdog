@@ -24,12 +24,12 @@ public class WeatherServiceTest {
     }
 
     @BeforeMethod
-    public void preMeth() {
+    public void pre() {
         inst = new WeatherService();
     }
 
     @AfterMethod
-    public void postMeth() {
+    public void post() {
         inst = null;
     }
 

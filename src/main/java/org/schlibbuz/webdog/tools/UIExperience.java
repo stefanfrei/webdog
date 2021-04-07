@@ -21,11 +21,11 @@ public class UIExperience {
         weatherService = new WeatherService();
     }
 
-    public void sayWelcome() {
+    public void printWelcome() {
         w.info(conciergeService.getWelcome());
     }
 
-    public void printWeatherReport() {
+    public void printActualWeather() {
         w.info(weatherService.getActualWeather());
     }
 
