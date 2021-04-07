@@ -47,7 +47,7 @@ public class PropsLoaderTest {
         }
     }
 
-    @Test(dataProvider= "sysProps")
+    @Test(dataProvider = "sysProps")
     public void getSysProps(String sysPropName, String sysPropValue) {
         w.trace("Testing System Property {}", sysPropName);
         assertEquals(System.getProperty(sysPropName), sysPropValue);

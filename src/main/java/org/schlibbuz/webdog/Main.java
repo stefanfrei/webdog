@@ -5,14 +5,11 @@
  */
 package org.schlibbuz.webdog;
 
-import java.io.IOException;
-import java.util.Properties;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.schlibbuz.webdog.tools.ArgsScanner;
+import org.schlibbuz.webdog.tools.CmdLineArgException;
+import org.schlibbuz.webdog.tools.Env;
 import org.schlibbuz.webdog.tools.PropsLoader;
 import org.schlibbuz.webdog.tools.UIExperience;
 
@@ -26,12 +23,15 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws CmdLineArgException {
+        w.trace("webdog starting ...");
         PropsLoader.addSysProps();
+        var env = new Env();
+        new ArgsScanner(env, args);
+
         var ux = new UIExperience();
         ux.sayWelcome();
         ux.printWeatherReport();
-        var as = new ArgsScanner(args);
     }
 
 }

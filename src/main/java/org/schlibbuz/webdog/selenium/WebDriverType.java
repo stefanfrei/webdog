@@ -7,7 +7,7 @@ public enum WebDriverType {
     CHROMIUM("chromium"),
     EDGE("edge"),
     EVENT_FIRING_WEB("eventfiringweb"),
-    FIREFOX("firefox"),
+    FIREFOX("gecko"),
     INTERNET_EXPLORER("internetexplorer"),
     OPERA("opera"),
     REMOTE_WEB("remoteweb"),
